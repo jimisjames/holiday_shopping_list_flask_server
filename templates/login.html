@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <style>
+        *{
+            margin: 1%;
+            padding: 1%;
+            background-color: blanchedalmond;
+        }
+        h2{
+            font-size: 50px;
+            text-align: center;
+        }
+        .name{
+            width: 75%;
+            margin-left: 5%;
+            margin-right: 150px;
+            border: 1px grey solid;
+            background-color: azure;
+        }
+        .button{
+            background-color: blue;
+            border-radius: 5px;
+            color: white;
+            border: 1px grey solid;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Log in</h2>
+    <form action='/processlog' method='post'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color:red">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        Username: <input class="name" type='text' name='username'/>
+        Password: <input class="name" type='password' name='password'/>
+
+        <input class="button" type='submit' value='Log in'>
+    </form>
+    
+</body>
+</html>
